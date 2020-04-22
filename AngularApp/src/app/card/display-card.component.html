@@ -1,0 +1,49 @@
+<app-accordion [title]="card.Item_Name" [hasJustViewed]="selectedcardId===card.Item_ID" [isHidden]="true">
+  <div class="col-xs-10 myPanelBody">
+    <div class="row vertical-align">
+      <div class="col-xs-8">
+        <div class="row">
+          <div class="col-xs-6">
+            Item ID
+          </div>
+          <div class="col-xs-6">
+            : {{card.Item_ID}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            Item Name
+          </div>
+          <div class="col-xs-6">
+            : {{card.Item_Name}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            Description
+          </div>
+          <div class="col-xs-6">
+            : {{card.Description}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            Price
+          </div>
+          <div class="col-xs-6">
+            : {{card.Price}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="myPanelFooter">
+    <button class="btn btn-primary" (click)=editCard()>Edit</button>
+    <span *ngIf="confirmDelete">
+      <span>Are you sure you want to Delete?</span>
+      <button class="btn btn-danger" (click)=deleteCard()>Yes</button>
+      <button class="btn btn-primary" (click)="confirmDelete=false">No</button>
+    </span>
+    <button *ngIf="!confirmDelete" class="btn btn-danger" (click)="confirmDelete=true">Delete</button>
+  </div>
+</app-accordion>

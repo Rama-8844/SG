@@ -1,0 +1,14 @@
+<!-- <h1 *ngIf="dataFromChild">
+    {{dataFromChild?.name + ' '+ dataFromChild?.gender}}
+</h1> -->
+<div class="form-group">
+<input type="text" class="form-control" placeholder="Search By Name" style="width: 300px;"
+[(ngModel)]="SearchTerm"/>
+</div>
+<div *ngFor="let card of filteredCards">
+    <app-display-card [card]="card" [SearchTerm]="SearchTerm"
+    (notifyDelete)="OnDeleteNotification($event)"></app-display-card>
+</div>
+<div *ngIf="error">
+    {{error}}
+</div>
